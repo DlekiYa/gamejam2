@@ -44,4 +44,5 @@ func highlight():
 	if !inv.slots[Currentslot].item == null:
 		Grid.highlight_sprite.texture = inv.slots[Currentslot].item.texture
 	else:
-		Grid.highlight_sprite.texture = null
+		pass
+		# Grid.highlight_sprite.texture = null

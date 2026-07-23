@@ -135,9 +135,9 @@ position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_mti6b")
 
 [node name="highlight_sprite" type="Sprite2D" parent="Grid" unique_id=461069490]
-visible = false
-modulate = Color(1, 1, 1, 0.65882355)
-position = Vector2(118.00008, -19.499975)
+modulate = Color(1, 1, 1, 0.2)
+position = Vector2(146.00003, 8)
+scale = Vector2(0.6718755, 0.65625)
 texture = ExtResource("2_8r58n")
 
 [node name="Player" parent="." unique_id=685406686 instance=ExtResource("9_jumxh")]

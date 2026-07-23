@@ -22,8 +22,8 @@ texture = ExtResource("2_xa75v")
 
 [node name="inv_ui" parent="." unique_id=1147753175 instance=ExtResource("4_58ae2")]
 offset_left = -222.0
-offset_top = -140.0
+offset_top = 54.0
 offset_right = -222.0
-offset_bottom = -140.0
+offset_bottom = 54.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=507095060]
