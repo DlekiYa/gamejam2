@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://deeylirh8gkfb" path="res://sprites/ugly/volcano big.png" id="6_bkqfa"]
 [ext_resource type="Texture2D" uid="uid://bsjwm7hc2urdu" path="res://sprites/ugly/grid.png" id="7_mvde6"]
 [ext_resource type="Script" uid="uid://bjhmyka2h58go" path="res://Script/Grid.gd" id="8_cl324"]
-[ext_resource type="PackedScene" uid="uid://beeys85kmqxn0" path="res://Scene/player.tscn" id="9_jumxh"]
-[ext_resource type="PackedScene" uid="uid://68dgvlwvevxv" path="res://Scene/stick.tscn" id="10_y65k6"]
-[ext_resource type="PackedScene" uid="uid://cttr8smuwwtuw" path="res://Scene/Stone.tscn" id="11_23avy"]
+[ext_resource type="PackedScene" uid="uid://beeys85kmqxn0" path="res://sprites/K uglyArt/Scene/player.tscn" id="9_jumxh"]
+[ext_resource type="PackedScene" uid="uid://68dgvlwvevxv" path="res://sprites/K uglyArt/Scene/stick.tscn" id="10_y65k6"]
+[ext_resource type="PackedScene" uid="uid://cttr8smuwwtuw" path="res://sprites/K uglyArt/Scene/Stone.tscn" id="11_23avy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mti6b"]
 radius = 31.0

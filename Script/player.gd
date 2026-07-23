@@ -14,18 +14,18 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("scroll up"):
+	if Input.is_action_just_pressed("scroll_up"):
 		if Currentslot != 7:
 			Currentslot += 1
 		else:
 			Currentslot = 0
-	if Input.is_action_just_pressed("scroll down"):
+	if Input.is_action_just_pressed("scroll_down"):
 		if Currentslot != 0:
 			Currentslot -= 1
 		else:
 			Currentslot = 7
 	highlight()
-	var direction = Input.get_vector("left", "right", "up","down")
+	var direction = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
 	
 	velocity = direction * speed 
 	move_and_slide()
