@@ -141,16 +141,16 @@ visible = false
 modulate = Color(1, 1, 1, 0.2)
 texture = ExtResource("2_6uqi0")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1272866412]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1272866412]
 position = Vector2(2082, 760)
 script = ExtResource("2_ppyta")
 
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=745310693]
+[node name="Icon" type="Sprite2D" parent="Player" unique_id=745310693]
 position = Vector2(2.4999943, 0)
 scale = Vector2(0.6640626, 1)
 texture = ExtResource("2_6uqi0")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1301567081]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1301567081]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1263902163]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1263902163]
 shape = SubResource("CapsuleShape2D_4kxuq")
