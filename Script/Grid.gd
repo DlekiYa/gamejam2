@@ -44,8 +44,8 @@ func _body_entered(body: Node2D) -> void:
 
 func _on_area_entered(area: Area2D):
 	if area is ItemOnGround:
-		put_item(area)
-		area.queue_free()
+		if put_item(area):
+			area.queue_free()
 
 func _body_exited(body: Node2D) -> void:
 	if body is Player:
@@ -54,12 +54,15 @@ func _body_exited(body: Node2D) -> void:
 		selected = -1
 		body.set_over_grid(false)
 
-func put_item(item_on_ground: ItemOnGround) -> void:
+func put_item(item_on_ground: ItemOnGround) -> bool:
 	var closest_index = find_closest_index(item_on_ground.global_position)
+	if items[closest_index] != null:
+		return false
 	items[closest_index] = item_on_ground.item
 	var display_item: Sprite2D = display_item_scene.instantiate()
 	display_item.texture = item_on_ground.item.texture
 	grid[closest_index].add_child(display_item)
+	return true
 
 func erase_item(slot: int) -> InvItem:
 	for child in grid[slot].get_children():

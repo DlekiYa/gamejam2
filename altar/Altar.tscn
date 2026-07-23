@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ryto0dym5mqx"]
+
+[ext_resource type="Script" uid="uid://c6y13fhhqpvv7" path="res://altar/altar.gd" id="1_co0ld"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4kxuq"]
+radius = 15.0
+height = 60.0
+
+[node name="Altar" type="Node2D" unique_id=1261377697]
+script = ExtResource("1_co0ld")
+
+[node name="AltarSprite" type="Sprite2D" parent="." unique_id=520150235]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=740146076]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=147180568]
+position = Vector2(2, 20)
+shape = SubResource("CapsuleShape2D_4kxuq")

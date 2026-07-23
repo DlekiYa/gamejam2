@@ -5,9 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://clpq6nc8k1f8n" path="res://sprites/alien_walk_sideways_final-export.png" id="3_mm0u0"]
 [ext_resource type="Texture2D" uid="uid://b1w0aw6il2sd2" path="res://sprites/alien_walk_front_final.png" id="3_uq7wv"]
 [ext_resource type="PackedScene" uid="uid://drx532c84uu1x" path="res://inventory/inv_ui.tscn" id="4_58ae2"]
+[ext_resource type="PackedScene" uid="uid://c3x10etdmyw6e" path="res://altar/ui/side_panel.tscn" id="6_h843d"]
+[ext_resource type="Script" uid="uid://bmj2g5in4jbgq" path="res://sprites/K uglyArt/Scene/altar_requirements.gd" id="7_srt5k"]
+[ext_resource type="Texture2D" uid="uid://claup6bdj71xi" path="res://altar/ui/9patch_rect.png" id="7_tm3x3"]
+[ext_resource type="Texture2D" uid="uid://d1wdvridb3p3b" path="res://sprites/owl altar x2 trimmed.png" id="9_4ags0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gxkm1"]
-radius = 20.024984
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_co0ld"]
+radius = 16.0
+height = 70.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dknga"]
 atlas = ExtResource("3_mm0u0")
@@ -106,6 +111,10 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tm3x3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kxuq"]
+
 [node name="Player" type="CharacterBody2D" unique_id=685406686 node_paths=PackedStringArray("animated_sprite")]
 z_index = 4096
 script = ExtResource("1_y8w33")
@@ -113,11 +122,12 @@ animated_sprite = NodePath("Sprite2D")
 inv = ExtResource("2_58ae2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=839643683]
-shape = SubResource("CircleShape2D_gxkm1")
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_co0ld")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=663569056]
 position = Vector2(-0.50000066, 1.5497208e-06)
-scale = Vector2(2.5625, 2.5000002)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
 animation = &"left_right"
 
@@ -136,3 +146,71 @@ offset_top = -9.0
 offset_right = 183.0
 offset_bottom = 14.0
 text = "press 'F' to pick up"
+
+[node name="SidePanel" parent="." unique_id=17638156 instance=ExtResource("6_h843d")]
+offset_left = 509.0
+offset_top = -105.0
+offset_right = 509.0
+offset_bottom = -105.0
+
+[node name="AltarRequirements" type="PanelContainer" parent="." unique_id=2038714023]
+visible = false
+offset_left = -212.0
+offset_top = -321.0
+offset_right = 233.0
+offset_bottom = -142.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tm3x3")
+script = ExtResource("7_srt5k")
+
+[node name="ninepathrect" type="NinePatchRect" parent="AltarRequirements" unique_id=1113629967]
+layout_mode = 2
+texture = ExtResource("7_tm3x3")
+region_rect = Rect2(0, 0, 192, 192)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="AltarRequirements" unique_id=840534435]
+layout_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="AltarRequirements/VBoxContainer" unique_id=1147630348]
+layout_mode = 2
+texture = ExtResource("9_4ags0")
+stretch_mode = 3
+
+[node name="Control" type="Control" parent="AltarRequirements/VBoxContainer" unique_id=1313406832]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="AltarRequirements/VBoxContainer/Control" unique_id=1114491821]
+custom_maximum_size = Vector2(228, 145)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -77.5
+offset_right = 108.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "this is an altar asdgasgsagas sad asdh as  sdah as sd a  adg asd sad asdg da a asdg asd asd gasd as d a"
+autowrap_mode = 2
+
+[node name="Example" type="Panel" parent="AltarRequirements/VBoxContainer" unique_id=1633420479]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Pad" type="Panel" parent="AltarRequirements/VBoxContainer" unique_id=786250199]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4kxuq")

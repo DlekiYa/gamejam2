@@ -70,17 +70,24 @@ func forget_pick_up(item: ItemOnGround) -> void:
 		hovering_over_item = null
 		$label_pick_up.hide()
 
-func collect(item: ItemOnGround):
+func collect(item: ItemOnGround) -> void:
 	if inv.insert(item.item, Currentslot, self):
 		item.queue_free()
 
-func drop():
+func drop() -> void:
 	inv.drop(Currentslot, self)
 
 func set_over_grid(state: bool) -> void:
 	over_grid = state
 
-func highlight():
+func highlight() -> void:
 	for i in 8:
 		$inv_ui.slots[i].modulate = Color(1.0, 1.0, 1.0, 1.0) 
 	$inv_ui.slots[Currentslot].modulate = Color(1.353, 1.353, 1.353, 1.0) 
+
+func diplay_altar_tip(altar: AltarRes) -> void:
+	$AltarRequirements.set_altar(altar)
+	$AltarRequirements.show()
+
+func hide_altar_tip() -> void:
+	$AltarRequirements.hide()

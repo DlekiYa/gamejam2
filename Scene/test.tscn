@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cddysvsuag50v"]
 
-[ext_resource type="Texture2D" uid="uid://c8g83k84ejv2l" path="res://sprites/owl_altar.png" id="1_6yxeo"]
 [ext_resource type="Texture2D" uid="uid://cxpd6ic24gshr" path="res://sprites/ugly/scuffed_texture_floor_starter_location.png" id="1_23avy"]
 [ext_resource type="Texture2D" uid="uid://bbngijjqmwnhm" path="res://icon.svg" id="2_8r58n"]
 [ext_resource type="Script" uid="uid://ciy58y131qoew" path="res://Script/volcano_manager.gd" id="3_y65k6"]
@@ -14,10 +13,8 @@
 [ext_resource type="Script" uid="uid://0vd5vc5a1mci" path="res://Scene/highlight_sprite.gd" id="11_bkqfa"]
 [ext_resource type="PackedScene" uid="uid://bvvystfvicrsq" path="res://inventory/item_on_ground.tscn" id="13_mvde6"]
 [ext_resource type="Resource" uid="uid://c3cgi6fa5av31" path="res://inventory/items/stick.tres" id="14_bkqfa"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mti6b"]
-radius = 31.0
-height = 116.0
+[ext_resource type="PackedScene" uid="uid://ryto0dym5mqx" path="res://altar/Altar.tscn" id="14_mvde6"]
+[ext_resource type="Resource" uid="uid://b6x6ls5mhleds" path="res://altar/OwlAltar.tres" id="15_cl324"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(126.78926, 127.1338)
@@ -40,16 +37,6 @@ size = Vector2(337, 306)
 position = Vector2(1708, 652)
 scale = Vector2(3.39625, 2.845)
 texture = ExtResource("1_23avy")
-
-[node name="OwlAltar" type="Sprite2D" parent="." unique_id=163889644]
-position = Vector2(1621, 676)
-texture = ExtResource("1_6yxeo")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="OwlAltar" unique_id=2001371817]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OwlAltar/StaticBody2D" unique_id=128116612]
-position = Vector2(5, 38)
-shape = SubResource("CapsuleShape2D_mti6b")
 
 [node name="wall1" type="Sprite2D" parent="." unique_id=1708952308]
 position = Vector2(1789.3126, -231.00002)
@@ -187,6 +174,10 @@ item = ExtResource("14_bkqfa")
 [node name="ItemOnGround9" parent="." unique_id=1315474690 instance=ExtResource("13_mvde6")]
 position = Vector2(2347, 917)
 item = ExtResource("14_bkqfa")
+
+[node name="Altar" parent="." unique_id=1261377697 instance=ExtResource("14_mvde6")]
+position = Vector2(1603, 601)
+altar_res = ExtResource("15_cl324")
 
 [connection signal="area_entered" from="Grid/GridArea" to="Grid" method="_on_area_entered"]
 [connection signal="body_entered" from="Grid/GridArea" to="Grid" method="player_entered_area"]
