@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cttr8smuwwtuw"]
+
+[ext_resource type="Script" uid="uid://cinxbnfnjtisw" path="res://Script/stone.gd" id="1_e0den"]
+[ext_resource type="Texture2D" uid="uid://udieddtpihf0" path="res://sprites/K uglyArt/rock.png" id="2_1tb32"]
+[ext_resource type="Resource" uid="uid://ds25pxcvqc02h" path="res://inventory/items/Stone.tres" id="2_xi1fe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxkm1"]
+radius = 8.0
+
+[node name="Stone" type="Area2D" unique_id=294216872]
+script = ExtResource("1_e0den")
+item = ExtResource("2_xi1fe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1394503655]
+shape = SubResource("CircleShape2D_gxkm1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2014497747]
+position = Vector2(1, -2)
+texture = ExtResource("2_1tb32")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

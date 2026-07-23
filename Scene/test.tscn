@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://cddysvsuag50v"]
 
-[ext_resource type="Texture2D" uid="uid://c8g83k84ejv2l" path="res://sprites/owl_altar.png" id="1_8uh7m"]
-[ext_resource type="Texture2D" uid="uid://bbngijjqmwnhm" path="res://icon.svg" id="2_6uqi0"]
-[ext_resource type="Script" uid="uid://ctj3sqijohbh8" path="res://character_body_2d.gd" id="2_ppyta"]
-[ext_resource type="Script" uid="uid://ciy58y131qoew" path="res://volcano_manager.gd" id="4_ppyta"]
-[ext_resource type="Texture2D" uid="uid://b2y1n4pr4hsia" path="res://sprites/ugly/volcano small.png" id="5_vbegm"]
-[ext_resource type="Texture2D" uid="uid://ddajtalfvuw2c" path="res://sprites/ugly/volcano medium.png" id="6_ehkex"]
-[ext_resource type="Texture2D" uid="uid://deeylirh8gkfb" path="res://sprites/ugly/volcano big.png" id="7_xersf"]
-[ext_resource type="Texture2D" uid="uid://bsjwm7hc2urdu" path="res://sprites/ugly/grid.png" id="8_xersf"]
-[ext_resource type="Script" uid="uid://bjhmyka2h58go" path="res://Grid.gd" id="9_00tp4"]
+[ext_resource type="Texture2D" uid="uid://c8g83k84ejv2l" path="res://sprites/owl_altar.png" id="1_6yxeo"]
+[ext_resource type="Texture2D" uid="uid://bbngijjqmwnhm" path="res://icon.svg" id="2_8r58n"]
+[ext_resource type="Script" uid="uid://ciy58y131qoew" path="res://Script/volcano_manager.gd" id="3_y65k6"]
+[ext_resource type="Texture2D" uid="uid://b2y1n4pr4hsia" path="res://sprites/ugly/volcano small.png" id="4_23avy"]
+[ext_resource type="Texture2D" uid="uid://ddajtalfvuw2c" path="res://sprites/ugly/volcano medium.png" id="5_porkx"]
+[ext_resource type="Texture2D" uid="uid://deeylirh8gkfb" path="res://sprites/ugly/volcano big.png" id="6_bkqfa"]
+[ext_resource type="Texture2D" uid="uid://bsjwm7hc2urdu" path="res://sprites/ugly/grid.png" id="7_mvde6"]
+[ext_resource type="Script" uid="uid://bjhmyka2h58go" path="res://Script/Grid.gd" id="8_cl324"]
+[ext_resource type="PackedScene" uid="uid://beeys85kmqxn0" path="res://Scene/player.tscn" id="9_jumxh"]
+[ext_resource type="PackedScene" uid="uid://68dgvlwvevxv" path="res://Scene/stick.tscn" id="10_y65k6"]
+[ext_resource type="PackedScene" uid="uid://cttr8smuwwtuw" path="res://Scene/Stone.tscn" id="11_23avy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mti6b"]
 radius = 31.0
@@ -29,15 +31,11 @@ size = Vector2(126.78926, 127.1338)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mti6b"]
 size = Vector2(337, 306)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4kxuq"]
-radius = 44.0
-height = 136.0
-
 [node name="Node2D" type="Node2D" unique_id=924035287]
 
 [node name="OwlAltar" type="Sprite2D" parent="." unique_id=163889644]
 position = Vector2(1621, 676)
-texture = ExtResource("1_8uh7m")
+texture = ExtResource("1_6yxeo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="OwlAltar" unique_id=2001371817]
 
@@ -48,7 +46,7 @@ shape = SubResource("CapsuleShape2D_mti6b")
 [node name="wall1" type="Sprite2D" parent="." unique_id=1708952308]
 position = Vector2(1658.375, -1082.375)
 scale = Vector2(39.02539, 0.9433591)
-texture = ExtResource("2_6uqi0")
+texture = ExtResource("2_8r58n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall1" unique_id=755347117]
 
@@ -59,7 +57,7 @@ shape = SubResource("RectangleShape2D_4kxuq")
 [node name="wall2" type="Sprite2D" parent="." unique_id=612203417]
 position = Vector2(4090, 632)
 scale = Vector2(1, 25.921875)
-texture = ExtResource("2_6uqi0")
+texture = ExtResource("2_8r58n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall2" unique_id=408834055]
 
@@ -70,7 +68,7 @@ shape = SubResource("RectangleShape2D_ykrsh")
 [node name="wall3" type="Sprite2D" parent="." unique_id=1444040933]
 position = Vector2(1595, 2241)
 scale = Vector2(37.890625, 1)
-texture = ExtResource("2_6uqi0")
+texture = ExtResource("2_8r58n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall3" unique_id=551031040]
 
@@ -81,7 +79,7 @@ shape = SubResource("RectangleShape2D_g14j6")
 [node name="wall4" type="Sprite2D" parent="." unique_id=1865997646]
 position = Vector2(-765, 561.50006)
 scale = Vector2(1, 25.398438)
-texture = ExtResource("2_6uqi0")
+texture = ExtResource("2_8r58n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall4" unique_id=2130236609]
 
@@ -91,16 +89,16 @@ shape = SubResource("RectangleShape2D_vbegm")
 
 [node name="VolcanoManager" type="Node2D" parent="." unique_id=1167929354 node_paths=PackedStringArray("my_sprite")]
 position = Vector2(1620, 520)
-script = ExtResource("4_ppyta")
-volcano_textures = Array[Texture2D]([ExtResource("5_vbegm"), ExtResource("6_ehkex"), ExtResource("7_xersf")])
+script = ExtResource("3_y65k6")
+volcano_textures = Array[Texture2D]([ExtResource("4_23avy"), ExtResource("5_porkx"), ExtResource("6_bkqfa")])
 my_sprite = NodePath("VolcanoSprite")
 
 [node name="VolcanoSprite" type="Sprite2D" parent="VolcanoManager" unique_id=1080171277]
 
 [node name="Grid" type="Sprite2D" parent="." unique_id=1475879012 node_paths=PackedStringArray("grid", "highlight_sprite")]
 position = Vector2(1620, 958)
-texture = ExtResource("8_xersf")
-script = ExtResource("9_00tp4")
+texture = ExtResource("7_mvde6")
+script = ExtResource("8_cl324")
 grid = [NodePath("GridSpotLeftUp"), NodePath("GridSpotMidUp"), NodePath("GridSpotRightUp"), NodePath("GridSpotLeftMid"), NodePath("GridSpotMidMid"), NodePath("GridSpotRightMid"), NodePath("GridSpotLeftDown"), NodePath("GridSpotMidDown"), NodePath("GridSpotRightDown")]
 highlight_sprite = NodePath("highlight_sprite")
 
@@ -139,21 +137,22 @@ shape = SubResource("RectangleShape2D_mti6b")
 [node name="highlight_sprite" type="Sprite2D" parent="Grid" unique_id=461069490]
 visible = false
 modulate = Color(1, 1, 1, 0.2)
-texture = ExtResource("2_6uqi0")
+scale = Vector2(3, 3)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1272866412]
-position = Vector2(2082, 760)
-script = ExtResource("2_ppyta")
+[node name="Player" parent="." unique_id=685406686 instance=ExtResource("9_jumxh")]
+position = Vector2(2072, 749)
 
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=745310693]
-position = Vector2(2.4999943, 0)
-scale = Vector2(0.6640626, 1)
-texture = ExtResource("2_6uqi0")
+[node name="Stick" parent="." unique_id=294216872 instance=ExtResource("10_y65k6")]
+position = Vector2(1995, 668)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1301567081]
+[node name="Stone" parent="." unique_id=401729028 instance=ExtResource("11_23avy")]
+position = Vector2(2183, 694)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1263902163]
-shape = SubResource("CapsuleShape2D_4kxuq")
+[node name="Stick2" parent="." unique_id=855853020 instance=ExtResource("10_y65k6")]
+position = Vector2(1945, 524)
+
+[node name="Stone2" parent="." unique_id=1820709784 instance=ExtResource("11_23avy")]
+position = Vector2(2509, 815)
 
 [connection signal="body_entered" from="Grid/Area2D" to="Grid" method="player_entered_area"]
 [connection signal="body_exited" from="Grid/Area2D" to="Grid" method="player_left_area"]
