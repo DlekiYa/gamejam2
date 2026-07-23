@@ -2,13 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://c8g83k84ejv2l" path="res://sprites/owl_altar.png" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://bbngijjqmwnhm" path="res://icon.svg" id="2_6uqi0"]
-[ext_resource type="Script" uid="uid://ctj3sqijohbh8" path="res://player.gd" id="2_ppyta"]
-[ext_resource type="Script" path="res://volcano_manager.gd" id="4_ppyta"]
-[ext_resource type="Texture2D" uid="uid://b2y1n4pr4hsia" path="res://sprites/ugly/volcano small.png" id="5_vbegm"]
-[ext_resource type="Texture2D" uid="uid://ddajtalfvuw2c" path="res://sprites/ugly/volcano medium.png" id="6_ehkex"]
-[ext_resource type="Texture2D" uid="uid://deeylirh8gkfb" path="res://sprites/ugly/volcano big.png" id="7_xersf"]
+[ext_resource type="Script" uid="uid://c6iwv31f04bfu" path="res://Script/player.gd" id="5_ykrsh"]
 [ext_resource type="Texture2D" uid="uid://bsjwm7hc2urdu" path="res://sprites/ugly/grid.png" id="8_xersf"]
-[ext_resource type="Script" uid="uid://bjhmyka2h58go" path="res://grid.gd" id="9_00tp4"]
+[ext_resource type="Script" uid="uid://bjhmyka2h58go" path="res://Script/Grid.gd" id="9_00tp4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mti6b"]
 radius = 31.0
@@ -89,11 +85,8 @@ texture = ExtResource("2_6uqi0")
 position = Vector2(0.3491211, -0.7874489)
 shape = SubResource("RectangleShape2D_vbegm")
 
-[node name="VolcanoManager" type="Node2D" parent="." unique_id=1167929354 node_paths=PackedStringArray("my_sprite")]
+[node name="VolcanoManager" type="Node2D" parent="." unique_id=1167929354]
 position = Vector2(1620, 520)
-script = ExtResource("4_ppyta")
-volcano_textures = Array[Texture2D]([ExtResource("5_vbegm"), ExtResource("6_ehkex"), ExtResource("7_xersf")])
-my_sprite = NodePath("VolcanoSprite")
 
 [node name="VolcanoSprite" type="Sprite2D" parent="VolcanoManager" unique_id=1080171277]
 
@@ -143,7 +136,7 @@ texture = ExtResource("2_6uqi0")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1272866412]
 position = Vector2(2082, 760)
-script = ExtResource("2_ppyta")
+script = ExtResource("5_ykrsh")
 
 [node name="Icon" type="Sprite2D" parent="Player" unique_id=745310693]
 position = Vector2(2.4999943, 0)
