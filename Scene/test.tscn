@@ -44,8 +44,8 @@ position = Vector2(5, 38)
 shape = SubResource("CapsuleShape2D_mti6b")
 
 [node name="wall1" type="Sprite2D" parent="." unique_id=1708952308]
-position = Vector2(1658.375, -1082.375)
-scale = Vector2(39.02539, 0.9433591)
+position = Vector2(1789.3126, -231.00002)
+scale = Vector2(22.36426, 0.99999994)
 texture = ExtResource("2_8r58n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall1" unique_id=755347117]
@@ -55,8 +55,8 @@ position = Vector2(0.34913635, -8.613037)
 shape = SubResource("RectangleShape2D_4kxuq")
 
 [node name="wall2" type="Sprite2D" parent="." unique_id=612203417]
-position = Vector2(4090, 632)
-scale = Vector2(1, 25.921875)
+position = Vector2(3118.0002, 648.5)
+scale = Vector2(1.4687476, 12.8359375)
 texture = ExtResource("2_8r58n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall2" unique_id=408834055]
@@ -66,8 +66,8 @@ position = Vector2(0.3491211, -0.65340805)
 shape = SubResource("RectangleShape2D_ykrsh")
 
 [node name="wall3" type="Sprite2D" parent="." unique_id=1444040933]
-position = Vector2(1595, 2241)
-scale = Vector2(37.890625, 1)
+position = Vector2(1726.5, 1538)
+scale = Vector2(23.335938, 0.8437501)
 texture = ExtResource("2_8r58n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall3" unique_id=551031040]
@@ -77,8 +77,8 @@ position = Vector2(0.34913635, -8.613037)
 shape = SubResource("RectangleShape2D_g14j6")
 
 [node name="wall4" type="Sprite2D" parent="." unique_id=1865997646]
-position = Vector2(-765, 561.50006)
-scale = Vector2(1, 25.398438)
+position = Vector2(311.5, 598.24994)
+scale = Vector2(0.8984375, 14.097656)
 texture = ExtResource("2_8r58n")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="wall4" unique_id=2130236609]

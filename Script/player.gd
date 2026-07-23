@@ -32,7 +32,6 @@ func _physics_process(delta: float) -> void:
 
 func collect(item):
 	inv.insert(item)
-	
 
 func player():
 	pass
@@ -44,5 +43,4 @@ func highlight():
 	if !inv.slots[Currentslot].item == null:
 		Grid.highlight_sprite.texture = inv.slots[Currentslot].item.texture
 	else:
-		pass
-		# Grid.highlight_sprite.texture = null
+		Grid.highlight_sprite.texture = null
