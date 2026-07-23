@@ -5,7 +5,8 @@ class_name ItemOnGround
 var player: Player = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$ItemSprite.texture = item.texture
+	if item != null:
+		$ItemSprite.texture = item.texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,3 +22,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if body is not Player:
 		return
 	player.forget_pick_up(self)
+
+func set_item_resource(item_: InvItem):
+	item = item_
+	$ItemSprite.texture = item.texture

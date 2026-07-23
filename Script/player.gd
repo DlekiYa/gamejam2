@@ -10,29 +10,30 @@ var Currentslot = 0
 var currently_walking: bool = false
 @export var animated_sprite: AnimatedSprite2D
 var hovering_over_item: ItemOnGround
+var over_grid: bool = false
 
 @export var inv: Inv
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	highlight()
 
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("scroll_up"):
-		if Currentslot != 7:
-			Currentslot += 1
-		else:
-			Currentslot = 0
+		Currentslot = (Currentslot - 1 + 8) % 8
+		highlight()
 	if Input.is_action_just_pressed("scroll_down"):
-		if Currentslot != 0:
-			Currentslot -= 1
-		else:
-			Currentslot = 7
+		Currentslot = (Currentslot + 1) % 8
+		highlight()
 	if Input.is_action_just_pressed("pick_up_key"):
 		if hovering_over_item != null:
 			collect(hovering_over_item)
-	highlight()
+		elif over_grid:
+			inv.insert(Grid.take(), Currentslot, self)
+	if Input.is_action_just_pressed("drop_key"):
+		inv.drop(Currentslot, self)
+	
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
 	if direction == Vector2.ZERO and currently_walking:
 		currently_walking = false
@@ -55,8 +56,14 @@ func forget_pick_up(item: ItemOnGround) -> void:
 		$label_pick_up.hide()
 
 func collect(item: ItemOnGround):
-	inv.insert(item.item)
-	item.queue_free()
+	if inv.insert(item.item, Currentslot, self):
+		item.queue_free()
+
+func drop():
+	inv.drop(Currentslot, self)
+
+func set_over_grid(state: bool) -> void:
+	over_grid = state
 
 func highlight():
 	for i in 8:

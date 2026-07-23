@@ -4,12 +4,10 @@ extends Panel
 @onready var amount_text: Label = $CenterContainer/Panel/Label
 
 func update(slot: InvSlots):
-	if !slot.item:
+	if slot.item == null:
 		item_visual.visible = false
 		amount_text.visible = false
 	else:
 		item_visual.visible = true
-		amount_text.visible = true
 		item_visual.texture = slot.item.texture
-		amount_text.text = str(slot.amount)
 	

@@ -136,9 +136,9 @@ position = Vector2(-6, 98)
 [node name="GridSpotRightDown" type="Node2D" parent="Grid" unique_id=2069295930]
 position = Vector2(106, 92)
 
-[node name="GridArea" type="Area2D" parent="Grid" unique_id=2301525]
+[node name="Area2D" type="Area2D" parent="Grid" unique_id=2301525]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid/GridArea" unique_id=907853269]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grid/Area2D" unique_id=907853269]
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_mti6b")
 
@@ -188,6 +188,5 @@ item = ExtResource("14_bkqfa")
 position = Vector2(2347, 917)
 item = ExtResource("14_bkqfa")
 
-[connection signal="area_entered" from="Grid/GridArea" to="Grid" method="_on_area_entered"]
-[connection signal="body_entered" from="Grid/GridArea" to="Grid" method="player_entered_area"]
-[connection signal="body_exited" from="Grid/GridArea" to="Grid" method="player_left_area"]
+[connection signal="body_entered" from="Grid/Area2D" to="Grid" method="player_entered_area"]
+[connection signal="body_exited" from="Grid/Area2D" to="Grid" method="player_left_area"]

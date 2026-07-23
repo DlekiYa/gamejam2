@@ -59,6 +59,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=685406686 node_paths=PackedStringArray("animated_sprite")]
+z_index = 4096
 script = ExtResource("1_y8w33")
 animated_sprite = NodePath("Sprite2D")
 inv = ExtResource("2_58ae2")
