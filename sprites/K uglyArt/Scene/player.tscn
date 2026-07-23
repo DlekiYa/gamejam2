@@ -2,11 +2,36 @@
 
 [ext_resource type="Script" uid="uid://c6iwv31f04bfu" path="res://Script/player.gd" id="1_y8w33"]
 [ext_resource type="Resource" uid="uid://bifyrocn4w2fn" path="res://inventory/Player_inventory.tres" id="2_58ae2"]
+[ext_resource type="Texture2D" uid="uid://clpq6nc8k1f8n" path="res://sprites/alien_walk_sideways_final-export.png" id="3_mm0u0"]
 [ext_resource type="Texture2D" uid="uid://b1w0aw6il2sd2" path="res://sprites/alien_walk_front_final.png" id="3_uq7wv"]
 [ext_resource type="PackedScene" uid="uid://drx532c84uu1x" path="res://inventory/inv_ui.tscn" id="4_58ae2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxkm1"]
 radius = 20.024984
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dknga"]
+atlas = ExtResource("3_mm0u0")
+region = Rect2(0, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypqvi"]
+atlas = ExtResource("3_mm0u0")
+region = Rect2(35, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2mea"]
+atlas = ExtResource("3_mm0u0")
+region = Rect2(70, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2un4"]
+atlas = ExtResource("3_mm0u0")
+region = Rect2(105, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1i4h"]
+atlas = ExtResource("3_mm0u0")
+region = Rect2(140, 0, 35, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xygwm"]
+atlas = ExtResource("3_mm0u0")
+region = Rect2(175, 0, 35, 35)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mm0u0"]
 atlas = ExtResource("3_uq7wv")
@@ -36,6 +61,29 @@ region = Rect2(175, 0, 35, 35)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_dknga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypqvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2mea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2un4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1i4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xygwm")
+}],
+"loop": 1,
+"name": &"left_right",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mm0u0")
 }, {
 "duration": 1.0,
@@ -54,7 +102,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_vcfsr")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"up_down",
 "speed": 12.0
 }]
 
@@ -71,8 +119,7 @@ shape = SubResource("CircleShape2D_gxkm1")
 position = Vector2(-0.50000066, 1.5497208e-06)
 scale = Vector2(2.5625, 2.5000002)
 sprite_frames = SubResource("SpriteFrames_4kxuq")
-frame = 3
-frame_progress = 0.7075418
+animation = &"left_right"
 
 [node name="inv_ui" parent="." unique_id=1147753175 instance=ExtResource("4_58ae2")]
 offset_left = -222.0

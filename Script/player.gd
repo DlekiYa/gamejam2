@@ -7,7 +7,8 @@ var Currentslot = 0
 
 @onready var Grid = $"../Grid"
 
-var currently_walking: bool = false
+enum walking_enum {WALKING_STRAIGHT, WALKING_LEFT, WALKING_RIGHT, IDLE}
+var currently_walking: walking_enum = walking_enum.IDLE
 @export var animated_sprite: AnimatedSprite2D
 var hovering_over_item: ItemOnGround
 var over_grid: bool = false
@@ -35,17 +36,31 @@ func _physics_process(delta: float) -> void:
 		inv.drop(Currentslot, self)
 	
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
-	if direction == Vector2.ZERO and currently_walking:
-		currently_walking = false
-		animated_sprite.stop()
-		animated_sprite.set_frame_and_progress(0, 0.0)
-	elif direction != Vector2.ZERO and not currently_walking:
-		currently_walking = true
-		animated_sprite.play()
-	
+	handle_animation(direction)
 	velocity = direction * speed 
 	move_and_slide()
-	
+
+func handle_animation(direction: Vector2) -> void:
+	if direction == Vector2.ZERO and currently_walking != walking_enum.IDLE:
+		currently_walking = walking_enum.IDLE
+		animated_sprite.play("up_down")
+		animated_sprite.flip_h = false
+		animated_sprite.stop()
+		animated_sprite.frame = 0
+	elif direction != Vector2.ZERO:
+		if abs(direction.x) < 0.1 and currently_walking != walking_enum.WALKING_STRAIGHT:
+			currently_walking = walking_enum.WALKING_STRAIGHT
+			animated_sprite.play("up_down")
+			animated_sprite.flip_h = false
+		elif direction.x >= 0.1 and currently_walking != walking_enum.WALKING_RIGHT:
+			currently_walking = walking_enum.WALKING_RIGHT
+			animated_sprite.play("left_right")
+			animated_sprite.flip_h = false
+		elif direction.x <= -0.1 and currently_walking != walking_enum.WALKING_LEFT:
+			currently_walking = walking_enum.WALKING_LEFT
+			animated_sprite.play("left_right")
+			animated_sprite.flip_h = true
+
 func offer_pick_up(item: ItemOnGround) -> void:
 	hovering_over_item = item
 	$label_pick_up.show()
