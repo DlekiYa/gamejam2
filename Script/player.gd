@@ -7,6 +7,9 @@ var Currentslot = 0
 
 @onready var Grid = $"../Grid"
 
+var currently_walking: bool = false
+@export var animated_sprite: AnimatedSprite2D
+
 @export var inv: Inv
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +29,13 @@ func _physics_process(delta: float) -> void:
 			Currentslot = 7
 	highlight()
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
+	if direction == Vector2.ZERO and currently_walking:
+		currently_walking = false
+		animated_sprite.stop()
+		animated_sprite.set_frame_and_progress(0, 0.0)
+	elif direction != Vector2.ZERO and not currently_walking:
+		currently_walking = true
+		animated_sprite.play()
 	
 	velocity = direction * speed 
 	move_and_slide()
