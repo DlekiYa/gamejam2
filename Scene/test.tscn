@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cddysvsuag50v"]
 
 [ext_resource type="Texture2D" uid="uid://c8g83k84ejv2l" path="res://sprites/owl_altar.png" id="1_6yxeo"]
+[ext_resource type="Texture2D" uid="uid://cxpd6ic24gshr" path="res://sprites/ugly/scuffed_texture_floor_starter_location.png" id="1_23avy"]
 [ext_resource type="Texture2D" uid="uid://bbngijjqmwnhm" path="res://icon.svg" id="2_8r58n"]
 [ext_resource type="Script" uid="uid://ciy58y131qoew" path="res://Script/volcano_manager.gd" id="3_y65k6"]
 [ext_resource type="Texture2D" uid="uid://b2y1n4pr4hsia" path="res://sprites/ugly/volcano small.png" id="4_23avy"]
@@ -9,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://bsjwm7hc2urdu" path="res://sprites/ugly/grid.png" id="7_mvde6"]
 [ext_resource type="Script" uid="uid://bjhmyka2h58go" path="res://Script/Grid.gd" id="8_cl324"]
 [ext_resource type="PackedScene" uid="uid://beeys85kmqxn0" path="res://sprites/K uglyArt/Scene/player.tscn" id="9_jumxh"]
-[ext_resource type="PackedScene" uid="uid://68dgvlwvevxv" path="res://sprites/K uglyArt/Scene/stick.tscn" id="10_y65k6"]
-[ext_resource type="PackedScene" uid="uid://cttr8smuwwtuw" path="res://sprites/K uglyArt/Scene/Stone.tscn" id="11_23avy"]
+[ext_resource type="Texture2D" uid="uid://xlo0u20tepdw" path="res://sprites/ugly/highlight.png" id="10_porkx"]
+[ext_resource type="Script" uid="uid://0vd5vc5a1mci" path="res://Scene/highlight_sprite.gd" id="11_bkqfa"]
+[ext_resource type="PackedScene" uid="uid://bvvystfvicrsq" path="res://inventory/item_on_ground.tscn" id="13_mvde6"]
+[ext_resource type="Resource" uid="uid://c3cgi6fa5av31" path="res://inventory/items/stick.tres" id="14_bkqfa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mti6b"]
 radius = 31.0
@@ -32,6 +35,11 @@ size = Vector2(126.78926, 127.1338)
 size = Vector2(337, 306)
 
 [node name="Node2D" type="Node2D" unique_id=924035287]
+
+[node name="ScuffedTextureFloorStarterLocation" type="Sprite2D" parent="." unique_id=230565198]
+position = Vector2(1708, 652)
+scale = Vector2(3.39625, 2.845)
+texture = ExtResource("1_23avy")
 
 [node name="OwlAltar" type="Sprite2D" parent="." unique_id=163889644]
 position = Vector2(1621, 676)
@@ -138,22 +146,15 @@ shape = SubResource("RectangleShape2D_mti6b")
 visible = false
 modulate = Color(1, 1, 1, 0.65882355)
 position = Vector2(118.00008, -19.499975)
-texture = ExtResource("2_8r58n")
+texture = ExtResource("10_porkx")
+script = ExtResource("11_bkqfa")
 
 [node name="Player" parent="." unique_id=685406686 instance=ExtResource("9_jumxh")]
 position = Vector2(2072, 749)
 
-[node name="Stick" parent="." unique_id=294216872 instance=ExtResource("10_y65k6")]
-position = Vector2(1995, 668)
-
-[node name="Stone" parent="." unique_id=401729028 instance=ExtResource("11_23avy")]
-position = Vector2(2183, 694)
-
-[node name="Stick2" parent="." unique_id=855853020 instance=ExtResource("10_y65k6")]
-position = Vector2(1945, 524)
-
-[node name="Stone2" parent="." unique_id=1820709784 instance=ExtResource("11_23avy")]
-position = Vector2(2509, 815)
+[node name="ItemOnGround" parent="." unique_id=294216872 instance=ExtResource("13_mvde6")]
+position = Vector2(2328, 820)
+item = ExtResource("14_bkqfa")
 
 [connection signal="body_entered" from="Grid/Area2D" to="Grid" method="player_entered_area"]
 [connection signal="body_exited" from="Grid/Area2D" to="Grid" method="player_left_area"]

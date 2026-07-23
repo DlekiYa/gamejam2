@@ -9,8 +9,10 @@ var Currentslot = 0
 
 var currently_walking: bool = false
 @export var animated_sprite: AnimatedSprite2D
+var hovering_over_item: ItemOnGround
 
 @export var inv: Inv
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -27,6 +29,9 @@ func _physics_process(delta: float) -> void:
 			Currentslot -= 1
 		else:
 			Currentslot = 7
+	if Input.is_action_just_pressed("pick_up_key"):
+		if hovering_over_item != null:
+			collect(hovering_over_item)
 	highlight()
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
 	if direction == Vector2.ZERO and currently_walking:
@@ -39,18 +44,21 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = direction * speed 
 	move_and_slide()
+	
+func offer_pick_up(item: ItemOnGround) -> void:
+	hovering_over_item = item
+	$label_pick_up.show()
 
-func collect(item):
-	inv.insert(item)
+func forget_pick_up(item: ItemOnGround) -> void:
+	if hovering_over_item == item:
+		hovering_over_item = null
+		$label_pick_up.hide()
 
-func player():
-	pass
+func collect(item: ItemOnGround):
+	inv.insert(item.item)
+	item.queue_free()
 
 func highlight():
 	for i in 8:
 		$inv_ui.slots[i].modulate = Color(1.0, 1.0, 1.0, 1.0) 
 	$inv_ui.slots[Currentslot].modulate = Color(1.353, 1.353, 1.353, 1.0) 
-	if !inv.slots[Currentslot].item == null:
-		Grid.highlight_sprite.texture = inv.slots[Currentslot].item.texture
-	else:
-		Grid.highlight_sprite.texture = null

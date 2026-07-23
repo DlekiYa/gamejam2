@@ -80,3 +80,11 @@ offset_right = -222.0
 offset_bottom = 54.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=507095060]
+
+[node name="label_pick_up" type="Label" parent="." unique_id=189035760]
+visible = false
+offset_left = 40.0
+offset_top = -9.0
+offset_right = 183.0
+offset_bottom = 14.0
+text = "press 'F' to pick up"

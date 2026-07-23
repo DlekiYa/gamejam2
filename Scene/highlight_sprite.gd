@@ -1,20 +1,15 @@
-extends Area2D
+extends Sprite2D
 
-@export var item: InvItem
-var player = null
+var scaling_factor = 0.02
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		player = body
-		player.collect(item)
-		queue_free()
+	if scale.x > 1.2 or scale.x < 0.9:
+		scaling_factor *= -1.0
+	scale.x += scaling_factor
+	scale.y += scaling_factor
