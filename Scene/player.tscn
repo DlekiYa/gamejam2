@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://beeys85kmqxn0"]
+
+[ext_resource type="Script" uid="uid://c6iwv31f04bfu" path="res://Script/player.gd" id="1_y8w33"]
+[ext_resource type="Resource" uid="uid://bifyrocn4w2fn" path="res://inventory/Player_inventory.tres" id="2_58ae2"]
+[ext_resource type="Texture2D" uid="uid://dngv1bpnjtb4d" path="res://sprites/K uglyArt/tp00.png" id="2_xa75v"]
+[ext_resource type="PackedScene" uid="uid://drx532c84uu1x" path="res://inventory/inv_ui.tscn" id="4_58ae2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxkm1"]
+radius = 20.024984
+
+[node name="Player" type="CharacterBody2D" unique_id=685406686]
+script = ExtResource("1_y8w33")
+inv = ExtResource("2_58ae2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=839643683]
+shape = SubResource("CircleShape2D_gxkm1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1027782089]
+texture_filter = 1
+position = Vector2(-0.50000066, 1.5497208e-06)
+scale = Vector2(2.5625, 2.5000002)
+texture = ExtResource("2_xa75v")
+
+[node name="inv_ui" parent="." unique_id=1147753175 instance=ExtResource("4_58ae2")]
+offset_left = -446.0
+offset_top = -257.0
+offset_right = -446.0
+offset_bottom = -257.0
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1688574076]

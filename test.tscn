@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://cddysvsuag50v"]
+[gd_scene format=3 uid="uid://c5e5unb5cqmx6"]
 
 [ext_resource type="Texture2D" uid="uid://c8g83k84ejv2l" path="res://sprites/owl_altar.png" id="1_8uh7m"]
 [ext_resource type="Texture2D" uid="uid://bbngijjqmwnhm" path="res://icon.svg" id="2_6uqi0"]
 [ext_resource type="Script" uid="uid://ctj3sqijohbh8" path="res://player.gd" id="2_ppyta"]
-[ext_resource type="Script" uid="uid://ciy58y131qoew" path="res://volcano_manager.gd" id="4_ppyta"]
+[ext_resource type="Script" path="res://volcano_manager.gd" id="4_ppyta"]
 [ext_resource type="Texture2D" uid="uid://b2y1n4pr4hsia" path="res://sprites/ugly/volcano small.png" id="5_vbegm"]
 [ext_resource type="Texture2D" uid="uid://ddajtalfvuw2c" path="res://sprites/ugly/volcano medium.png" id="6_ehkex"]
 [ext_resource type="Texture2D" uid="uid://deeylirh8gkfb" path="res://sprites/ugly/volcano big.png" id="7_xersf"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dne46pvtwdgou"]
+
+[ext_resource type="PackedScene" uid="uid://bs4pwtcv5vo0c" path="res://button.tscn" id="1_mjyg7"]
+
+[node name="Control" type="Control" unique_id=889720321]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 521.0
+offset_right = -2.0
+offset_bottom = 521.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1190533448]
+layout_mode = 0
+offset_right = 1184.0
+offset_bottom = 128.0
+
+[node name="Control" parent="HBoxContainer" unique_id=1276257527 instance=ExtResource("1_mjyg7")]
+layout_mode = 2

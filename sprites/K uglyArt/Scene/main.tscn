@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dgtyxwimepni1"]
+
+[ext_resource type="PackedScene" uid="uid://beeys85kmqxn0" path="res://Scene/player.tscn" id="1_f6udf"]
+[ext_resource type="PackedScene" uid="uid://68dgvlwvevxv" path="res://Scene/stick.tscn" id="2_sblpm"]
+[ext_resource type="PackedScene" uid="uid://cttr8smuwwtuw" path="res://Scene/Stone.tscn" id="3_r34rm"]
+
+[node name="Main" type="Node2D" unique_id=1790897621]
+
+[node name="Player" parent="." unique_id=685406686 instance=ExtResource("1_f6udf")]
+position = Vector2(179, 209)
+
+[node name="Stick" parent="." unique_id=294216872 instance=ExtResource("2_sblpm")]
+position = Vector2(400, 304)
+
+[node name="Stick2" parent="." unique_id=1756673789 instance=ExtResource("2_sblpm")]
+position = Vector2(103, 392)
+
+[node name="Stick3" parent="." unique_id=1944292162 instance=ExtResource("2_sblpm")]
+position = Vector2(265, 178)
+
+[node name="Stone" parent="." unique_id=938779938 instance=ExtResource("3_r34rm")]
+position = Vector2(372, 417)
+
+[node name="Stone2" parent="." unique_id=1672762727 instance=ExtResource("3_r34rm")]
+position = Vector2(75, 222)
+
+[node name="Stone3" parent="." unique_id=2022331696 instance=ExtResource("3_r34rm")]
+position = Vector2(302, 233)
