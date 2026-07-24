@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b1w0aw6il2sd2" path="res://sprites/alien_walk_front_final.png" id="3_uq7wv"]
 [ext_resource type="PackedScene" uid="uid://drx532c84uu1x" path="res://inventory/inv_ui.tscn" id="4_58ae2"]
 [ext_resource type="PackedScene" uid="uid://c3x10etdmyw6e" path="res://altar/ui/side_panel.tscn" id="6_h843d"]
+[ext_resource type="Script" uid="uid://bxguqxn0ae44m" path="res://sprites/K uglyArt/Scene/label_tip.gd" id="6_vcfsr"]
 [ext_resource type="Script" uid="uid://bmj2g5in4jbgq" path="res://sprites/K uglyArt/Scene/altar_requirements.gd" id="7_srt5k"]
 [ext_resource type="Texture2D" uid="uid://claup6bdj71xi" path="res://altar/ui/9patch_rect.png" id="7_tm3x3"]
 [ext_resource type="Texture2D" uid="uid://d1wdvridb3p3b" path="res://sprites/owl altar x2 trimmed.png" id="9_4ags0"]
@@ -115,11 +116,13 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4kxuq"]
 
-[node name="Player" type="CharacterBody2D" unique_id=685406686 node_paths=PackedStringArray("animated_sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=685406686 node_paths=PackedStringArray("animated_sprite", "debug_timer", "tip_label")]
 z_index = 4096
 script = ExtResource("1_y8w33")
 animated_sprite = NodePath("Sprite2D")
 inv = ExtResource("2_58ae2")
+debug_timer = NodePath("DebugTimer")
+tip_label = NodePath("label_tip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=839643683]
 position = Vector2(1, 3)
@@ -139,13 +142,14 @@ offset_bottom = 54.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=507095060]
 
-[node name="label_pick_up" type="Label" parent="." unique_id=189035760]
+[node name="label_tip" type="Label" parent="." unique_id=189035760]
 visible = false
 offset_left = 40.0
 offset_top = -9.0
 offset_right = 183.0
 offset_bottom = 14.0
 text = "press 'F' to pick up"
+script = ExtResource("6_vcfsr")
 
 [node name="SidePanel" parent="." unique_id=17638156 instance=ExtResource("6_h843d")]
 offset_left = 509.0
@@ -214,3 +218,12 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4kxuq")
+
+[node name="DebugTimer" type="Label" parent="." unique_id=821404189]
+offset_left = -64.0
+offset_top = 194.0
+offset_right = 69.0
+offset_bottom = 257.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1

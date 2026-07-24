@@ -28,3 +28,6 @@ func drop(slot: int, player: Player) -> bool:
 	update.emit()
 	new_item.position = player.global_position
 	return true
+
+func check_slot(slot: int) -> bool:
+	return slots[slot] != null

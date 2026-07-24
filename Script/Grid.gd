@@ -1,5 +1,6 @@
 extends Sprite2D
 
+class_name Grid
 
 @export var grid: Array[Node2D]
 @export var highlight_sprite: Sprite2D
@@ -37,21 +38,23 @@ func recalc_closest(player: Player) -> void:
 	highlight_sprite.position = grid[selected].position
 	highlight_sprite.show()
 
-func _body_entered(body: Node2D) -> void:
-	if body is Player:
-		player_inside = body
-		body.set_over_grid(true)
-
 func _on_area_entered(area: Area2D):
 	if area is ItemOnGround:
 		if put_item(area):
 			area.queue_free()
+
+func _body_entered(body: Node2D) -> void:
+	if body is Player:
+		player_inside = body
+		body.tip_label.add_state(body.tip_label.State.PUT_ON_GRID)
+		body.set_over_grid(true)
 
 func _body_exited(body: Node2D) -> void:
 	if body is Player:
 		highlight_sprite.hide()
 		player_inside = null
 		selected = -1
+		body.tip_label.remove_state(body.tip_label.State.PUT_ON_GRID)
 		body.set_over_grid(false)
 
 func put_item(item_on_ground: ItemOnGround) -> bool:

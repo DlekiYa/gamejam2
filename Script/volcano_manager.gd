@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name VolcanoManager
+
 @export var volcano_textures: Array[Texture2D] # basically each index corresponds to a size texture
 # now that I think about it, in the future we should assign scenes so that the collision shape is pre-made
 @export var my_sprite: Sprite2D

@@ -12,8 +12,13 @@ var currently_walking: walking_enum = walking_enum.IDLE
 @export var animated_sprite: AnimatedSprite2D
 var hovering_over_item: ItemOnGround
 var over_grid: bool = false
+enum ActionState {SACRIFICE, FISHING, NOTHING}
+var current_action: ActionState = ActionState.NOTHING
+var game_manager: GameManager
 
 @export var inv: Inv
+@export var debug_timer: Label
+@export var tip_label: LabelTip
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +39,12 @@ func _physics_process(delta: float) -> void:
 			inv.insert(Grid.take(), Currentslot, self)
 	if Input.is_action_just_pressed("drop_key"):
 		inv.drop(Currentslot, self)
+	if Input.is_action_just_pressed("action_key"):
+		match current_action:
+			ActionState.SACRIFICE:
+				game_manager.sacrifice()
+			ActionState.NOTHING:
+				pass
 	
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
 	handle_animation(direction)
@@ -63,12 +74,12 @@ func handle_animation(direction: Vector2) -> void:
 
 func offer_pick_up(item: ItemOnGround) -> void:
 	hovering_over_item = item
-	$label_pick_up.show()
+	tip_label.add_state(tip_label.State.PICK_UP)
 
 func forget_pick_up(item: ItemOnGround) -> void:
+	tip_label.remove_state(tip_label.State.PICK_UP)
 	if hovering_over_item == item:
 		hovering_over_item = null
-		$label_pick_up.hide()
 
 func collect(item: ItemOnGround) -> void:
 	if inv.insert(item.item, Currentslot, self):
