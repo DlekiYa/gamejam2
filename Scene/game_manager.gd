@@ -33,15 +33,31 @@ func start_game():
 	time_until_eruption = 100.0
 
 func next_stage():
+	# clear grid of items
+	# destroy old altars animation
+	# grow volcano
+	# give player power ups
+	# generate new altars
 	pass
 
-func sacrifice() -> bool:
+func loop_sac(indicate: bool = false) -> bool:
+	var all_satisfied: bool = true
 	for altar in altars:
 		if altar == null:
 			continue
 		if altar.altar_res.check_requirements(grid.items):
-			continue
-		return false
-	next_stage()
-	print("lets goo")
-	return true
+			if indicate:
+				altar.indicate_correct()
+		else:
+			if indicate:
+				altar.indicate_wrong()
+			all_satisfied = false
+	return all_satisfied
+
+func sacrifice() -> bool:
+	var satisfied: bool = loop_sac()
+	if satisfied:
+		next_stage()
+	else:
+		loop_sac(true)
+	return satisfied
