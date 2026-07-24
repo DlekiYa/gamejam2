@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AltarRes" format=3 uid="uid://b6x6ls5mhleds"]
+
+[ext_resource type="Script" uid="uid://cbjnu740gct3d" path="res://altar/AltarRes.gd" id="1_hgt2f"]
+[ext_resource type="Texture2D" uid="uid://km7s3oqgx6jj" path="res://sprites/owl altar x2.png" id="2_auecr"]
+[ext_resource type="Texture2D" uid="uid://d1wdvridb3p3b" path="res://sprites/owl altar x2 trimmed.png" id="3_w35m0"]
+
+[resource]
+script = ExtResource("1_hgt2f")
+name = "owl altar"
+texture = ExtResource("2_auecr")
+texture_trimmed = ExtResource("3_w35m0")
+metadata/_custom_type_script = "uid://cbjnu740gct3d"
