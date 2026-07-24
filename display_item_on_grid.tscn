@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://feswoihvjl4f"]
+
+[node name="DisplayItemOnGrid" type="Sprite2D" unique_id=1772473353]
+scale = Vector2(4, 4)
