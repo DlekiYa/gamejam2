@@ -21,13 +21,24 @@ func insert(item: InvItem, slot: int, player: Player) -> bool:
 func drop(slot: int, player: Player) -> bool:
 	if slots[slot].item == null:
 		return false
-	var new_item: ItemOnGround = item_on_ground_scene.instantiate()
-	player.get_tree().root.add_child(new_item)
-	new_item.set_item_resource(slots[slot].item)
-	slots[slot].item = null
-	update.emit()
-	new_item.position = player.global_position
-	return true
+	else:
+		var new_item: ItemOnGround = item_on_ground_scene.instantiate()
+		player.get_tree().root.add_child(new_item)
+		new_item.set_item_resource(slots[slot].item)
+		slots[slot].item = null
+		update.emit()
+		new_item.position = player.global_position
+		return true
 
 func check_slot(slot: int) -> bool:
 	return slots[slot] != null
+
+func clear(slot: int, player: Player):
+	if slots[slot].item == null:
+		return false
+	else:
+		var new_item: ItemOnGround = item_on_ground_scene.instantiate()
+		slots[slot].item = null
+		update.emit()
+		new_item.position = player.global_position
+		return true

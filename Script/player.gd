@@ -4,6 +4,7 @@ class_name Player
 
 var speed = 500
 var Currentslot = 0
+var health = 3
 
 @onready var Grid = $"../Grid"
 
@@ -45,7 +46,23 @@ func _physics_process(delta: float) -> void:
 				game_manager.sacrifice()
 			ActionState.NOTHING:
 				pass
-	
+	if Input.is_key_pressed(KEY_1):
+		Currentslot = 0
+	elif Input.is_key_pressed(KEY_2):
+		Currentslot = 1
+	elif Input.is_key_pressed(KEY_3):
+		Currentslot = 2
+	elif Input.is_key_pressed(KEY_4):
+		Currentslot = 3
+	elif Input.is_key_pressed(KEY_5):
+		Currentslot = 4
+	elif Input.is_key_pressed(KEY_6):
+		Currentslot = 5
+	elif Input.is_key_pressed(KEY_7):
+		Currentslot = 6
+	elif Input.is_key_pressed(KEY_8):
+		Currentslot = 7
+		
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up","ui_down")
 	handle_animation(direction)
 	velocity = direction * speed 
@@ -102,3 +119,11 @@ func diplay_altar_tip(altar: AltarRes) -> void:
 
 func hide_altar_tip() -> void:
 	$AltarRequirements.hide()
+
+
+func _on_deathbyenemy_body_entered(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		get_tree().reload_current_scene()
+		for i in 8:
+			inv.clear(i, self)
+		

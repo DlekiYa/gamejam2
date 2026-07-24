@@ -24,14 +24,3 @@ offset_bottom = 16.0
 layout_mode = 2
 
 [node name="item_desplace" type="Sprite2D" parent="CenterContainer/Panel" unique_id=208660860]
-
-[node name="Label" type="Label" parent="CenterContainer/Panel" unique_id=952878121]
-layout_mode = 0
-offset_left = -4.9999995
-offset_top = 0.6666666
-offset_right = 35.0
-offset_bottom = 49.666668
-scale = Vector2(0.3, 0.3)
-text = "99
-"
-horizontal_alignment = 2
