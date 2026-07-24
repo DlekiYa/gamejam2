@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cddysvsuag50v"]
 
 [ext_resource type="Texture2D" uid="uid://cxpd6ic24gshr" path="res://sprites/ugly/scuffed_texture_floor_starter_location.png" id="1_23avy"]
-[ext_resource type="Script" uid="uid://cp112vvydyx6q" path="res://Scene/game_manager.gd" id="1_mvde6"]
+[ext_resource type="Script" uid="uid://cp112vvydyx6q" path="res://Script/game_manager.gd" id="1_mvde6"]
 [ext_resource type="Texture2D" uid="uid://bbngijjqmwnhm" path="res://icon.svg" id="2_8r58n"]
 [ext_resource type="Script" uid="uid://ciy58y131qoew" path="res://Script/volcano_manager.gd" id="3_y65k6"]
 [ext_resource type="Texture2D" uid="uid://b2y1n4pr4hsia" path="res://sprites/ugly/volcano small.png" id="4_23avy"]
@@ -12,12 +12,13 @@
 [ext_resource type="Script" uid="uid://bjhmyka2h58go" path="res://Script/Grid.gd" id="8_cl324"]
 [ext_resource type="PackedScene" uid="uid://beeys85kmqxn0" path="res://sprites/K uglyArt/Scene/player.tscn" id="9_jumxh"]
 [ext_resource type="Texture2D" uid="uid://xlo0u20tepdw" path="res://sprites/ugly/highlight.png" id="10_porkx"]
-[ext_resource type="Script" uid="uid://0vd5vc5a1mci" path="res://Scene/highlight_sprite.gd" id="11_bkqfa"]
+[ext_resource type="Script" uid="uid://0vd5vc5a1mci" path="res://Script/highlight_sprite.gd" id="11_bkqfa"]
 [ext_resource type="Texture2D" uid="uid://cmluqg1rjth6c" path="res://sprites/ugly/hole.png" id="11_cl324"]
 [ext_resource type="PackedScene" uid="uid://bvvystfvicrsq" path="res://inventory/item_on_ground.tscn" id="13_mvde6"]
 [ext_resource type="Resource" uid="uid://c3cgi6fa5av31" path="res://inventory/items/stick.tres" id="14_bkqfa"]
 [ext_resource type="Texture2D" uid="uid://if75rhpyu1b2" path="res://sprites/ugly/button sample.png" id="16_cl324"]
-[ext_resource type="Script" uid="uid://dlvgu2ufr6l5x" path="res://Scene/sacrifice_area.gd" id="17_jumxh"]
+[ext_resource type="Script" uid="uid://dlvgu2ufr6l5x" path="res://Script/sacrifice_area.gd" id="17_jumxh"]
+[ext_resource type="PackedScene" uid="uid://d1k0bcwhdhng1" path="res://Scene/warewolf.tscn" id="19_55pnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kxuq"]
 size = Vector2(126.78926, 127.1338)
@@ -226,6 +227,9 @@ shape = SubResource("CircleShape2D_4kxuq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SacrificeButton/SacrificeButtonBody" unique_id=2094450367]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_mm1bc")
+
+[node name="Warewolf" parent="." unique_id=2085043118 instance=ExtResource("19_55pnm")]
+position = Vector2(1992, 582)
 
 [connection signal="area_entered" from="Grid/GridArea" to="Grid" method="_on_area_entered"]
 [connection signal="body_entered" from="Grid/GridArea" to="Grid" method="player_entered_area"]
